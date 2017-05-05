@@ -30,6 +30,7 @@ var Renderer = Class.create(/** @lends Renderer.prototype */{
     renderType:null,
     canvas: null,
     stage: null,
+    blendMode:'source-over',
 
     /**
      * @language=en

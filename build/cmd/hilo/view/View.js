@@ -78,6 +78,7 @@ return Class.create(/** @lends View.prototype */{
     boundsArea: null,
     parent: null,
     depth: -1,
+    blendMode:'source-over',
 
     /**
      * @language=en

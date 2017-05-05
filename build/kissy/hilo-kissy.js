@@ -1004,6 +1004,7 @@ var Renderer = Class.create(/** @lends Renderer.prototype */{
     renderType:null,
     canvas: null,
     stage: null,
+    blendMode:'source-over',
 
     /**
      * @language=en
@@ -1108,6 +1109,9 @@ var CanvasRenderer = Class.create(/** @lends CanvasRenderer.prototype */{
         if(target.visible && target.alpha > 0){
             if(target === this.stage){
                 this.context.clearRect(0, 0, target.width, target.height);
+            }
+            if(target.blendMode !== this.blendMode){
+                this.context.globalCompositeOperation = this.blendMode = target.blendMode;
             }
             this.context.save();
             return true;
@@ -2140,6 +2144,7 @@ return Class.create(/** @lends View.prototype */{
     boundsArea: null,
     parent: null,
     depth: -1,
+    blendMode:'source-over',
 
     /**
      * @language=en

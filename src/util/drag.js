@@ -62,6 +62,11 @@ var drag = {
         var maxX = bounds[2] == Infinity?Infinity:minX + bounds[2];
         var maxY = bounds[3] == Infinity?Infinity:minY + bounds[3];
 
+        var worldPoint = {
+            x:0, 
+            y:0
+        };
+
         function onStart(e){
             e.stopPropagation();
             updateMouse(e);
@@ -69,8 +74,12 @@ var drag = {
 
             that.fire("dragStart", mouse);
 
-            that.__dragX = that.x - mouse.x;
-            that.__dragY = that.y - mouse.y;
+            var worldMatrix = that.parent.getConcatenatedMatrix();
+            worldPoint.x = that.x;
+            worldPoint.y = that.y;
+            worldMatrix.transformPoint(worldPoint);
+            that.__dragX = worldPoint.x - mouse.x;
+            that.__dragY = worldPoint.y - mouse.y;
 
             if(!stage){
                 stage = this.getStage();
@@ -91,12 +100,15 @@ var drag = {
             updateMouse(e);
 
             that.fire("dragMove", mouse);
+            
+            worldPoint.x = mouse.x + that.__dragX;
+            worldPoint.y = mouse.y + that.__dragY;
 
-            var x = mouse.x + that.__dragX;
-            var y = mouse.y + that.__dragY;
+            var viewMatrix = that.parent.getConcatenatedMatrix().invert();
+            viewMatrix.transformPoint(worldPoint);
 
-            that.x = Math.max(minX, Math.min(maxX, x));
-            that.y = Math.max(minY, Math.min(maxY, y));
+            that.x = Math.max(minX, Math.min(maxX, worldPoint.x));
+            that.y = Math.max(minY, Math.min(maxY, worldPoint.y));
         }
 
         function updateMouse(e){

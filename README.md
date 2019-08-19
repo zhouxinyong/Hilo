@@ -1,4 +1,5 @@
 # Hilo - HTML5 Game Framework [![npm][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![size][size-image]][size-url] [![gitter.im][gitter-image]][gitter-url]
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fzhouxinyong%2FHilo.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fzhouxinyong%2FHilo?ref=badge_shield)
 
 [中文版](./README_ZH.md)
 
@@ -99,3 +100,6 @@ Get started by reading [docs/api-en/index.html](http://hiloteam.github.io/Hilo/d
 
 [example-image]: https://img.alicdn.com/tps/TB1vDlBLVXXXXcDXVXXXXXXXXXX-850-806.png
 [example-url]: http://hiloteam.github.io/examples/index.html
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fzhouxinyong%2FHilo.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fzhouxinyong%2FHilo?ref=badge_large)
